@@ -1,15 +1,25 @@
-<div class="row container" *ngIf="!passwordCorretta">
+<div class="row container mt-5" *ngIf="!passwordCorretta">
     <form class="form-inline">
-        <div class="form-group">
+
+
+        <div class="form-group mx-sm-3 mb-2">
             <label for="name">Inserisci la password</label>
-            <input type="password" [(ngModel)]="password" class="form-control" name="password"> <br>
-        </div>
-        <button (click)="checkPassword()" class="btn btn-default" type="submit">Invia</button>
+            <input type="password" [(ngModel)]="password" name="password" class="form-control" id="inputPassword2" placeholder="Password">
+          </div>
+          <button (click)="checkPassword()" type="submit" type="button" class="btn btn-primary mb-2">Accedi</button>
+       
     </form>
 </div>
+<div *ngIf="passwordCorretta ">
+    <div class="row container  mt-5">
+        <div class="col-8">
+            <h1>Benvenuto {{nome}}</h1>
+        </div>
+        <div class="col-4"> <button (click)="logOut()" type="button" class="btn btn-danger" type="submit">Log Out</button></div>
 
-<button  *ngIf="passwordCorretta" (click)="logOut()" class="btn btn-default" type="submit">Log Out</button>
-<div class="row container" *ngIf="passwordCorretta">
+    </div>
+</div>
+<div class="row container  mt-5" *ngIf="passwordCorretta">
     <div class="col-6">
         <h1>TITOLARI</h1>
         <h4 [ngClass]="{
