@@ -1,0 +1,31 @@
+<div class="row container" *ngIf="!passwordCorretta">
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="name">Inserisci la password</label>
+            <input type="password" [(ngModel)]="password" class="form-control" name="password"> <br>
+        </div>
+        <button (click)="checkPassword()" class="btn btn-default" type="submit">Invia</button>
+    </form>
+</div>
+
+<button  *ngIf="passwordCorretta" (click)="logOut()" class="btn btn-default" type="submit">Log Out</button>
+<div class="row container" *ngIf="passwordCorretta">
+    <div class="col-6">
+        <h1>TITOLARI</h1>
+        <h4 [ngClass]="{
+            'portiere': tit.ruolo==='P',
+            'difensore': tit.ruolo==='D',
+            'centrocampista': tit.ruolo==='C',
+            'attaccante': tit.ruolo==='A'
+        }" *ngFor="let tit of iTuoiTitolari">{{tit.nome}} {{tit.percentuale}} {{tit.ruolo}}</h4>
+    </div>
+    <div class="col-6">
+        <h1>RISERVE</h1>
+        <h4 [ngClass]="{
+            'portiere': ris.ruolo==='P',
+            'difensore': ris.ruolo==='D',
+            'centrocampista': ris.ruolo==='C',
+            'attaccante': ris.ruolo==='A'
+        }" *ngFor="let ris of leTueRiserve">{{ris.nome}} {{ris.percentuale}} {{ris.ruolo}}</h4>
+    </div>
+</div>

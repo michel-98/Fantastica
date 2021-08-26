@@ -1,0 +1,12 @@
+.portiere{
+    color: brown;
+}
+.attaccante{
+    color: red;
+}
+.centrocampista{
+    color: blue;
+}
+.difensore{
+    color: green;
+}
